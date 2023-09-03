@@ -1,0 +1,104 @@
+1. framermotion works using tags, by wrapping your content in motion tags
+    ex. import {motion} from 'framer-motion'
+
+    <motion.[tag value ex. p or h1]></motion>
+
+    to add an animation, we can add an animate object which inside we add css like
+    properties like fontSize, color, keep in mind that in the framermotion 
+
+    we pass props inside the motion tag, some examples would be...
+
+    1. animate {{
+        fontSize: 50,
+        color: '#fffff',
+        scale: 1.5,
+        x: 10,
+        y: 10,
+    }}
+
+        *** In this animate prop, when our page renders an animation property is passed which will increase the font size to 50px, 
+            the text color to black and the scale (size) to 1.5x its original size 
+
+            x and y refer to the x-y axis', if you set them to a positive number, they'll move in a positive axis direction, so x would move
+            it to the right and y would be up and likewise, if its negative, it'll move them in the opposite direction, -x would be left and -y
+            would be down
+
+    2. the second property is the initial property which sets the starting point of the element tag 
+
+        initial={{
+            y: -100
+            opacity: 0,
+        }}
+
+        animate= {{
+            opacity: 1,
+            y: 0,
+        }}
+
+        *** In this snippet, we set the initial y value to -100 which sets the tag element way down and the opacity is 0 meaning we can't see it 
+            then inside the animate we set the opacity to 1 and y to 0 meaning it'll animate back to its original position whilst also becoming visible 
+
+    
+    3. the third property is the transition which controls the animation, it is used to control the animation from initial to the animation
+
+        initial={{
+            y: -100
+            opacity: 0,
+        }}
+
+        animate= {{
+            opacity: 1,
+            y: 0,
+        }}
+
+        transition= {{
+            delay: 1.5,
+            duration: 1.4
+            type: ---> has a default value of spring which gives the animation a spring-y, bouncy feel, we can also pass a stiffness value which controls how springy 
+                       it should be, the default value for stiffness is 100, it does a type called 'tween' which is a fully stiff transition
+        }}
+
+        *** In this code, theres a 1.5s delay from when the animation occurs and the animation duration is 1.4s
+
+    
+    4. another property we can use is whileHover={{}}, which applies animations when the cursor hovers over the element 
+
+        whileHover={{
+            scale: 1.1,
+            textShadow: ,
+            boxShadow: ,
+            originX: 0 ---> used to keep animation in check of its original position
+        }}
+
+    5. variants - allow us to extract our initial, animate and transition from an outside object making our code more modular 
+
+        const containerVariants = {
+            initial: {
+                x: '100vw,
+                opacity: 0,
+            }
+            animate: {
+                opacity: 1,
+                x: 0,
+                transition: {
+                    delay: 1.5
+                }
+            }
+        }
+
+        <motion.div
+            variants={containerVariants}
+            initial="initial"
+            animate="animate"
+        >
+        
+        </motion.div>
+
+        *** In this code, we created an outside JS object which has our initial, animate and transition props and assigned them to a motion tag inside our JSX
+            we don't need to reference the transition property as its nested inside the animate property so it already knows 
+
+
+    6. 
+
+    
+
