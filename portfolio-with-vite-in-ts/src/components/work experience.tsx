@@ -8,54 +8,15 @@ export default function Experience() {
     const targetRef = useRef<HTMLDivElement>(null);
     const {scrollYProgress} = useScroll({
         target: targetRef,
-        offset : ["start end", "end start"],
+        offset : ["start end", "end end"],
     });
 
-    const controls = useAnimation();
-    const isInView = useInView(targetRef);
-    
-    const parentVariants = {
-        initial : {
-            opacity : 0,
-            x : 20,
-            y : 20,
-        },
-        animate : {
-            opacity : 1,
-            x : 0,
-            y : 0,
-            transition : {
-                delay: 0.5,
-                staggerChildren: 0.3,
-                delayChildren: 0.3,
-            },
-        },
-    };
+    const YTransform = useTransform(
+        scrollYProgress,
+        [0, 1],
+        [100, 0],
+    )
 
-    const childVariants = {
-        initial : {
-            opacity : 0,
-            x : 20,
-            y : 20,
-        },
-        animate : {
-            opacity : 1,
-            x : 20,
-            y : 20,
-            transition : {
-                delay : 0.5,
-            },
-        },
-    };
-
-    useEffect(() => {
-        if(isInView) {
-            controls.start("animate");
-        }
-        else {
-            controls.start("initial");
-        }
-    }, []);
 
     // scrollY [array of values mapped form] [array of values mapped to] ex. [0, 0.5, 1] [1, 0.5, 0] --> if the scrollYprogress is 0 meaning its at the beginning on your container
     /* 
@@ -64,15 +25,17 @@ export default function Experience() {
         when we've reached 100% or 1 this means we've reached the bottom of our container hence making it now invisible
 
     */
-    const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
-    const scale = useTransform(scrollYProgress, [0, 1], [0.65, 1]);
+    const opacity = useTransform(scrollYProgress, [0.85, 1], [0.85, 1]);
+    const scale = useTransform(scrollYProgress, [0.85, 1], [0.85, 1]);
 
     return(
         <>
         <h1 className="exp-header" style={{color: '#000000'}}><span style={{color: '#2772EF'}}>Work</span> Experience</h1>
-        <motion.div className='work-exp-section'  variants={parentVariants} initial="initial" animate={controls} style={{opacity, scale}}>
+
+        
+        <div className='work-exp-section' >
             
-                <motion.div className='first-work-exp' variants={childVariants} >
+                <motion.div className='first-work-exp' style={{opacity, scale, y : YTransform}}>
                 <div className='first-work-exp-flex'>
                     <div>
                         <h2>Nokia</h2>
@@ -104,7 +67,7 @@ export default function Experience() {
 
 
 
-                <motion.div className='first-work-exp' variants={childVariants}>
+                <motion.div className='second-work-exp' style={{opacity, scale}}>
                 <div className='first-work-exp-flex'>
                     <div>
                         <h2>Nokia</h2>
@@ -134,7 +97,7 @@ export default function Experience() {
 
 
 
-                <motion.div className='first-work-exp' variants={childVariants}>
+                <motion.div className='third-work-exp' style={{opacity, scale}}>
                 <div className='first-work-exp-flex'>
                     <div>
                         <h2>Nokia</h2>
@@ -178,7 +141,7 @@ export default function Experience() {
 
 
 
-          </motion.div>
+          </div>
           </>
     );
 }

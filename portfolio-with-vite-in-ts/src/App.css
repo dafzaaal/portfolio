@@ -158,6 +158,21 @@ html {
     text-align: center;
 }
 
+.clubs-list {
+    text-align: left;
+}
+
+.certs li{
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.certificates {
+    margin-right: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
 .educationheader {
     color: #2772EF;
     font-family: 'Roboto', sans-serif;
@@ -183,9 +198,21 @@ html {
 }
 
 .inside-education-flex div {
-    padding: 20px 0px;
+    padding: 20px 20px;
     margin-bottom: 75px;
 }
+
+.downloadcerts {
+    width: 250px;
+    height: 55px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
 
 .education-flex p {
     font-family: 'IBM Plex Sans', sans-serif;
@@ -213,6 +240,10 @@ html {
     margin-right: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+}
+
+.clubs li {
+    margin-bottom : 20px;
 }
 
 
@@ -252,6 +283,15 @@ html {
     justify-content: center;
 }
 
+.second-work-exp {
+    display: flex;
+    justify-content: center;
+}
+
+.third-work-exp {
+    display: flex;
+    justify-content: center;
+}
 
 .first-work-exp-flex {
     display: flex;
@@ -260,7 +300,7 @@ html {
     padding: 30px 30px 30px 30px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    width: 80%;
+    width: 65%;
 }
 .first-work-exp-flex h4 {
     text-align: center;

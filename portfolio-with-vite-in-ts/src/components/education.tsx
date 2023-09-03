@@ -3,12 +3,20 @@ import { motion, useScroll, useAnimation, useInView, stagger, color, useTransfor
 import uofc from "../images/uofc logo.png"
 import "../App.css"
 import '../css/hover.css';
+import filepath from "../assets/certs.pdf";
+import {faDownload} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Education() {
+
     const ref = useRef<HTMLDivElement>(null);
 
-    const isInView = useInView(ref);
+    const isInView = useInView(ref, {once : true});
     const controls = useAnimation();
+    const {scrollY} = useScroll({
+        target: ref,
+        offset: ["start start", "end end"],
+    });
 
     useEffect(() => {
         if(isInView) {
@@ -29,7 +37,7 @@ function Education() {
           transition: {
             duration: 2,
             delayChildren: 0.5,
-            staggerChildren: 0.5,
+            staggerChildren: 1.05,
           },
         },
       };
@@ -77,8 +85,37 @@ function Education() {
                         <motion.div className='clubs' variants={childVariants}>
                             <h2>Extracirrculars</h2>
                                 <p>
+                                  <ol className='clubs-list'>
+                                    <li>A member of the <span style={{fontWeight : "bold"}}>University of Calgary Undergaduate Society</span></li>
+                                    <li>A board member of the <span style={{fontWeight : "bold"}}>Computer Science Information Security Club</span></li>
+                                  </ol>
                                     A member of both the University of Calgary Undergraduate Society as well as the Information Security
                                     club!
+                                </p>
+                        </motion.div>
+
+                        <motion.div className='certificates' variants={childVariants}>
+                            <h2>Certificates</h2>
+                                <p>
+                                  <ol className='certs'>
+                                    <li><span style={{fontWeight : "bold"}}>UX Design Principles</span> issued by <span style={{fontWeight : "bold"}}>Google</span> on April 1st, 2021</li>
+                                    <li><span style={{fontWeight : "bold"}}>Google Cloud Platform (GCP) Fundamentals</span> issued by <span style={{fontWeight : "bold"}}>Google Cloud</span> on April 2nd, 2021</li>
+                                    <li><span style={{fontWeight : "bold"}}>Become a React Developer</span> issued by <span style={{fontWeight : "bold"}}>LinkedIn Learning</span> on April 6th, 2021</li>
+                                    <a href={filepath} download="Dawood's Cerificates">
+                                      <motion.button 
+                                      className='downloadcerts'
+                                      whileHover={{
+                                        scale : 1.1,
+                                        transition : {
+                                          duration : 0.35,
+                                        }
+                                      }}
+                                      >
+                                        <FontAwesomeIcon icon={faDownload} size='lg' className='icons' style={{color: '#000000'}}/>
+                                        Download My Certificates!</motion.button>
+                                    </a>
+                                    
+                                  </ol>
                                 </p>
                         </motion.div>
 

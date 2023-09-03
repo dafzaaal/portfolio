@@ -9,6 +9,7 @@ import {faGithub, faLinkedin, faGoogle, faDocker, faPython} from '@fortawesome/f
 import Education from "./components/education.tsx";
 import Experience from './components/work experience.tsx';
 import FramerMotionComponent from './components/framercomp.tsx';
+import Scroll from './components/scroll.tsx';
  
 function App() {
 
@@ -154,6 +155,8 @@ function App() {
       <Experience />
 
       <FramerMotionComponent />
+
+      <Scroll />
 
 
 
