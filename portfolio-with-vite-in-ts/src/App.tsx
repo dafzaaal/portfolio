@@ -1,34 +1,22 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import './App.css';
 import './css/hover.css';
-import { motion, useAnimation, useInView, stagger, color} from "framer-motion";
+import { motion, useAnimation, useInView} from "framer-motion";
 import Particle from "./components/Particle.tsx";
 import resumepath from "./assets/Dawood Afzaal Resume.pdf";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faGithub, faLinkedin, faGoogle, faDocker, faPython} from '@fortawesome/free-brands-svg-icons';
+import {faGithub, faLinkedin, faGoogle} from '@fortawesome/free-brands-svg-icons';
 import Education from "./components/education.tsx";
 import Experience from './components/work experience.tsx';
 import FramerMotionComponent from './components/framercomp.tsx';
 import Scroll from './components/scroll.tsx';
+import Projects from './components/projects.tsx';
+import Contact from './components/contact.tsx';
  
 function App() {
 
   const eduRef = useRef(null);
-  const workExpRef = useRef(null);
   const isEducationInView = useInView(eduRef, {once : true});
-
-  const skillsVariants = {
-    initial : {
-      opacity: 0,
-    },
-    animate : {
-      opacity: 1,
-      tranision: {
-        delay: 0.5,
-      },
-    },
-  };
-
 
   const mainControls = useAnimation();
 
@@ -54,39 +42,6 @@ function App() {
       },
     }
   };
-
-  const educationAnimation = {
-    hidden : {
-      opacity: 0,
-      y: 40,
-    },
-    visible : {
-      opacity: 1,
-      y: 0,
-      transition : {
-        type: 'spring',
-        when: 'beforeChildren',
-        delay: 0.5,
-        stagger: 0.2
-      },
-    },
-  }
-
-  const childEducationVariants = {
-    hidden : {
-      opacity: 0,
-      y: 40,
-    },
-    visible : {
-      opacity: 1,
-      y: 0,
-      transition : {
-        delay: 0.5,
-      }
-    }
-  }
-
-    
 
   
 
@@ -154,9 +109,30 @@ function App() {
 
       <Experience />
 
-      <FramerMotionComponent />
+      <Projects />
 
-      <Scroll />
+      <Contact />
+
+
+      <footer className='footer'>
+        
+        <div>
+          <h3>Dawood Afzaal</h3>
+        </div>
+
+
+        <div>
+          <a href="https://github.com/dafzaaal" target='_blank'>
+            <FontAwesomeIcon className='icons' size='2xl'  icon={faGithub} style={{color: "#ffffff"}}></FontAwesomeIcon>
+          </a>
+
+          <a href='https://www.linkedin.com/in/dawood-afzaal-36933b1a5/' target='_blank'>
+            <FontAwesomeIcon icon={faLinkedin}className='icons' size='2xl' style={{color: "#ffffff", marginLeft : "10px"}}/>
+          </a>
+        </div>
+
+
+      </footer>
 
 
 

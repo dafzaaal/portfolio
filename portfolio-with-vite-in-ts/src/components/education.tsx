@@ -1,15 +1,18 @@
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import { motion, useScroll, useAnimation, useInView, stagger, color, useTransform} from 'framer-motion';
 import uofc from "../images/uofc logo.png"
 import "../App.css"
 import '../css/hover.css';
 import filepath from "../assets/certs.pdf";
-import {faDownload} from '@fortawesome/free-solid-svg-icons'
+import {faDownload, faThumbsUp} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Education() {
 
     const ref = useRef<HTMLDivElement>(null);
+
+    const [text, setText] = useState("Download My Certificates!");
+    const [icon, setIcon] = useState(faDownload);
 
     const isInView = useInView(ref, {once : true});
     const controls = useAnimation();
@@ -17,6 +20,11 @@ function Education() {
         target: ref,
         offset: ["start start", "end end"],
     });
+
+    const handleButtonClick = () => {
+        setText("Downloaded!");
+        setIcon(faThumbsUp)
+    };
 
     useEffect(() => {
         if(isInView) {
@@ -107,12 +115,24 @@ function Education() {
                                       whileHover={{
                                         scale : 1.1,
                                         transition : {
+                                          type : "spring",
+                                          ease: "linear",
                                           duration : 0.35,
                                         }
                                       }}
+                                      whileTap={{
+                                        scale : 0.65,
+                                        transition : {
+                                          ease: "linear",
+                                          duration : 0.35,
+      
+                                        }
+                                      }}
+                                      onClick={handleButtonClick}
                                       >
-                                        <FontAwesomeIcon icon={faDownload} size='lg' className='icons' style={{color: '#000000'}}/>
-                                        Download My Certificates!</motion.button>
+
+                                        <FontAwesomeIcon icon={icon} size='lg' className='icons' style={{color: '#000000'}}/>
+                                        {text}</motion.button>
                                     </a>
                                     
                                   </ol>

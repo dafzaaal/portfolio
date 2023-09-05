@@ -8,6 +8,30 @@ html {
     color: black;
 }
 
+
+/* GENERAL CSS RULES TO APPLY TO ALL SECTIONS INCLUDES: h1, h2, paragraphs*/
+
+.headers {
+    font-family: 'Roboto', sans-serif;
+    font-size: 65px;
+    margin-top: 150px;
+    text-align: center; 
+}
+
+
+.h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+    color: #2772EF;
+}
+
+.p {
+    font-size: 19px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
 .header {
     z-index: 1;
     display: flex;
@@ -210,7 +234,8 @@ html {
     border-radius: 5px;
     background-color: white;
     border-radius: 10px;
-
+    margin-top: 20px; 
+    border-bottom: 4px solid black;
 }
 
 
@@ -267,10 +292,16 @@ html {
     text-align: center;
 }
 
+
 .work-exp-section h2 {
     font-family: 'Roboto', sans-serif;
     font-size: 35px;
     color: #2772EF;
+}
+
+.img-span img {
+    padding-top: 15px;
+    margin-right: 15px;
 }
 
 .work-exp-section h3{
@@ -278,19 +309,22 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
-.first-work-exp {
+.work-exp {
     display: flex;
     justify-content: center;
+    margin-top: 75px;
 }
 
 .second-work-exp {
     display: flex;
     justify-content: center;
+    margin-top: 75px;
 }
 
 .third-work-exp {
     display: flex;
     justify-content: center;
+    margin-top: 75px;
 }
 
 .first-work-exp-flex {
@@ -345,3 +379,173 @@ html {
     color: lightgray;
 }
 /* End of Work Exp. CSS */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* START OF PROJECT CSS RULES -------------------- */
+
+
+
+.project-container h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 65px;
+    margin-top: 150px;
+    text-align: center;
+}
+
+.project-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project {
+    padding: 30px 30px 30px 30px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin-bottom: 75px;
+    width: 70%;
+}
+
+.project li {
+    margin-bottom: 5px;
+}
+
+.project h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+    color: #2772EF;
+}
+
+.project p {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.githubbutton {
+    width: 220px;
+    height: 50px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+
+.githubbutton:hover {
+    color: black;
+    background-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  START OF CONTACT SECTION CSS */
+
+
+.contact-container {
+    position: relative;
+    padding-bottom: 100px;
+    z-index: 1;
+}
+
+.email-form-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.email-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    width: 30%;
+    padding: 100px 35px 100px 35px;
+    border-radius: 10px;
+}
+
+.email-form input {
+    width: 285px;
+    height: 35px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.email-form button {
+    margin-top: 50px;
+    width: 220px;
+    height: 50px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.email-form textarea {
+    margin-top: 25px;
+    width: 425px;
+    height: 300px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    border-radius: 5px;
+    font-size: 14.5px;
+}
+
+
+.email-form h3 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px 0px 20px;
+    background-color: black;
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px 10px 10px 10px;
+}
+
+.footer h3 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+}
